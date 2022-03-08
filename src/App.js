@@ -3,6 +3,7 @@ import { StudentProvider } from './utils/StudentContext';
 import StudentList from './components/StudentList';
 import './app.css';
 import Joe from './components/Joe';
+import UpdateStudent from './components/UpdateStudent';
 
 function App() {
   const title = 'Activity 10: useReducer';
@@ -18,6 +19,7 @@ function App() {
       <StudentProvider>
         <Joe/>
         <StudentList />
+        <UpdateStudent/>
       </StudentProvider>
     </div>
   );
