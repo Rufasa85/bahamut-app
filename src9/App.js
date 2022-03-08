@@ -1,16 +1,15 @@
-import React from 'react';
-import List from './components/List';
-import Nav from './components/Nav';
+import React, { useEffect } from 'react';
+import ThemeComponent from './components/ThemeComponent';
+import ThemeProvider from './utils/ThemeContext';
 
-// Import our list of users from users.js
-import users from './users';
-
-// Pass users array to the List component as a prop
 export default function App() {
+  useEffect(() => {
+    document.title = 'Unit 22.1: useReducer';
+  }, []);
+
   return (
-    <div>
-      <Nav />
-      <List users={users} />
-    </div>
+    <ThemeProvider>
+      <ThemeComponent />
+    </ThemeProvider>
   );
 }

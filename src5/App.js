@@ -1,8 +1,16 @@
-import React from "react";
-import JSXVariables from "./components/JSXVariables";
+import React, { useEffect } from 'react';
+import CarComponent from './components/CarComponent';
+// Importing our theme provider which will make our global state available to child components
+import CarProvider from './utils/CarContext';
 
-function App() {
-  return <JSXVariables />;
+export default function App() {
+  useEffect(() => {
+    document.title = 'Unit 22.1: Reducers';
+  }, []);
+
+  return (
+    <CarProvider>
+      <CarComponent />
+    </CarProvider>
+  );
 }
-
-export default App;

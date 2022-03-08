@@ -1,16 +1,28 @@
-import React from "react";
-// We import our HelloDiv from the components folder
-import HelloDiv from "./components/HelloDiv";
+import React, { useEffect } from 'react';
+import { StudentProvider } from './utils/StudentContext';
+import StudentList from './components/StudentList';
+import './app.css';
+import Joe from './components/Joe';
 
-// App is our top-level main component that references other components
 function App() {
+  const title = 'Activity 4: Consumers';
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   return (
-    <>
-    <HelloDiv />
-    <HelloDiv />
-    <HelloDiv />
-    </>
-    )
+    <div className="app">
+      <h1>22.1 State</h1>
+      <h4 style={{ color: 'lightseagreen' }}>{title}</h4>
+      {/* Provider wraps all the logic that handles/updates our state */}
+      <StudentProvider>
+        <Joe/>
+        <hr/>
+        <Joe/>
+        <StudentList />
+      </StudentProvider>
+    </div>
+  );
 }
 
 export default App;

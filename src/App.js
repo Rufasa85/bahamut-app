@@ -1,21 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import User from "./pages/User";
+import React, { useEffect } from 'react';
+import { StudentProvider } from './utils/StudentContext';
+import StudentList from './components/StudentList';
+import './app.css';
+import Joe from './components/Joe';
 
 function App() {
+  const title = 'Activity 10: useReducer';
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   return (
-    <>
-      <Router>
-        <Link to="/">Go Home</Link>
-        <Link to="/about">about page</Link>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/:user" element={<User />} />
-        </Routes>
-      </Router>
-    </>
+    <div className="app">
+      <h1>22.1 State</h1>
+      <h4 style={{ color: 'lightseagreen' }}>{title}</h4>
+      {/* Provider wraps all the logic that handles/updates our state */}
+      <StudentProvider>
+        <Joe/>
+        <StudentList />
+      </StudentProvider>
+    </div>
   );
 }
 
